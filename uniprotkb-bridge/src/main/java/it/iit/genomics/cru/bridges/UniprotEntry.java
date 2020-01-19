@@ -15,9 +15,10 @@
  *******************************************************************************/
 package it.iit.genomics.cru.bridges;
 
-import it.iit.genomics.cru.utils.maps.MapOfMap;
 
 import java.util.Collection;
+
+import com.google.common.collect.ArrayListMultimap;
 
 public class UniprotEntry {
 
@@ -27,6 +28,6 @@ public class UniprotEntry {
 	
 	private Collection<String> refseq;
 	
-	private MapOfMap pdbChains;
+	private ArrayListMultimap<String, String> pdbChains;
 	
 }

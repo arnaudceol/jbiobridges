@@ -10,12 +10,11 @@
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
+ * See the License for the specific lanArrayListMultimapge governing permissions and
  * limitations under the License.
  *******************************************************************************/
 package it.iit.genomics.cru.bridges;
 
-import it.iit.genomics.cru.utils.maps.MapOfMap;
 import java.io.IOException;
 
 import java.io.InputStream;
@@ -29,6 +28,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.google.common.collect.ArrayListMultimap;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -49,12 +50,11 @@ public class UniprotkbUtils {
 
     private static final String TAXONOMY_TOOL = "taxonomy";
 
-    public static MapOfMap<String, String> getUniprotAcsFromGenes(
+    public static ArrayListMultimap<String, String> getUniprotAcsFromGenes(
             Collection<String> genes, String organism) {
         String tool = UNIPROT_TOOL;
 
-        MapOfMap<String, String> gene2uniprots = new MapOfMap<>(
-                genes);
+        ArrayListMultimap<String, String> gene2uniprots =  ArrayListMultimap.create();
 
         if (genes.isEmpty()) {
             return gene2uniprots;
@@ -119,7 +119,7 @@ public class UniprotkbUtils {
 
                     for (String gene : geneNames) {
                         if (gene2uniprots.containsKey(gene)) {
-                            gene2uniprots.add(gene, uniprotAc);
+                            gene2uniprots.put(gene, uniprotAc);
                         }
                     }
                 }
@@ -194,12 +194,11 @@ System.out.println(location);
         return acs;
     }
 
-    public static MapOfMap<String, String> getUniprotAcsFromRefSeqs(
+    public static ArrayListMultimap<String, String> getUniprotAcsFromRefSeqs(
             Collection<String> refSeqs) {
         String tool = UNIPROT_TOOL;
 
-        MapOfMap<String, String> refseq2uniprots = new MapOfMap<>(
-                refSeqs);
+        ArrayListMultimap<String, String> refseq2uniprots = ArrayListMultimap.create();
 
         if (refSeqs.isEmpty()) {
             return refseq2uniprots;
@@ -267,10 +266,10 @@ System.out.println(location);
                                 xref = xref.substring(0, xref.length() - 1);
                             }
                             if (refseq2uniprots.containsKey(xref.trim())) {
-                                refseq2uniprots.add(xref, ac);
+                                refseq2uniprots.put(xref, ac);
                             } else if (refseq2uniprots.containsKey(xref
                                     .split("[.]")[0])) {
-                                refseq2uniprots.add(xref.split("[.]")[0], ac);
+                                refseq2uniprots.put(xref.split("[.]")[0], ac);
                             }
                         }
                     }
@@ -427,14 +426,13 @@ System.out.println(location);
         return results;
     }
 
-    public static MapOfMap<String, String> getStructuresFromUniprotAcs(
+    public static ArrayListMultimap<String, String> getStructuresFromUniprotAcs(
             Collection<String> xrefs) {
 
         // remove xrefs that are not uniprotAcs
         Collection<String> uniprotAcs = getUniprotAcs(xrefs);
 
-        MapOfMap<String, String> results = new MapOfMap<>(
-                uniprotAcs);
+        ArrayListMultimap<String, String> results = ArrayListMultimap.create();
 
         String location = DBFETCH_SERVER + "?db=uniprotkb;id="
                 + StringUtils.join(uniprotAcs, ",")
@@ -485,7 +483,7 @@ System.out.println(location);
                         ac = line.substring(5, line.indexOf(";"));
                     } else if (line.startsWith("DR   PDB;")) {
                         String pdb = line.split(";")[1].trim();
-                        results.add(ac, pdb);
+                        results.put(ac, pdb);
                     }
                 }
             } else {
