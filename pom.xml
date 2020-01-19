@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>it.iit.genomics.cru.bridges</groupId>
+	<artifactId>bridges-project</artifactId>
+	<version>2019_12</version>
+
+	<packaging>pom</packaging>
+
+	<name>Bridges project</name>
+
+ 	<modules>
+ 		<module>ensembl-bridge</module> 
+ 		<module>interactome3d-bridge</module>
+ 		<module>uniprotkb-bridge</module>
+ 		<module>dsysmap-bridge</module> 
+ 		<module>cosmic-mart-bridge</module> 
+ 	</modules> 
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<cru.version>2.2-SNAPSHOT</cru.version>
+		<luceneVersion>7.1.0</luceneVersion>
+ 	</properties>
+
+	<repositories>
+		<!-- EBI repositories - Where the IntAct artifacts are stored -->
+		<repository>
+			<id>ebi-repo</id>
+			<name>ebi-repo</name>
+			<url>http://www.ebi.ac.uk/~maven/m2repo</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>            
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>
