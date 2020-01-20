@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.iit.genomics.cru.bridges</groupId>
 	<artifactId>bridges-project</artifactId>
-	<version>2019_12</version>
+	<version>2020_01</version>
 
 	<packaging>pom</packaging>
 
