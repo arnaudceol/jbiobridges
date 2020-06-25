@@ -39,14 +39,14 @@ public class TestWS {
 //		assertEquals(26, client.getNumberOfInteractionStructures());
 //		
 //		assertEquals(3, client.getInteractors("A0A5B9").size());
-        Collection<I3DInteractionStructure> interactionStructures = client.getInteractionStructures("P04229", "P04233");
+        Collection<I3DInteractionStructure> interactionStructures = client.getInteractionStructures("P01911", "P04233");
 
-        assertEquals(11, interactionStructures.size());
+        assertEquals(14, interactionStructures.size());
 
         I3DInteractionStructure interactionStructure = null;
 
         for (I3DInteractionStructure s : interactionStructures) {
-            if ("P04229-P04233-EXP-3pdo.pdb1-B-0-C-0.pdb".equals(s.getFilename())) {
+            if ("P01911-P04233-EXP-3pdo.pdb1-B-0-C-0.pdb".equals(s.getFilename())) {
                 interactionStructure = s;
             }
         }
@@ -60,21 +60,21 @@ public class TestWS {
         // proteins
 //		assertEquals(25, local.getNumberOfProteinStructures());
 //				
-        Collection<I3DProteinStructure> proteinStructures = client.getProteinStructures("P01892");
+        Collection<I3DProteinStructure> proteinStructures = client.getProteinStructures("P04439");
 
-        assertEquals(439, proteinStructures.size());
+        assertEquals(590, proteinStructures.size());
 
         I3DProteinStructure proteinStructure = null;
 
         for (I3DProteinStructure s : proteinStructures) {
-            if ("P01892-EXP-2bnr_A.pdb".equals(s.getFilename())) {
+            if ("P04439-EXP-2bnr_A.pdb".equals(s.getFilename())) {
                 proteinStructure = s;
             }
         }
 
         assertNotNull(proteinStructure);
         assertEquals(25, proteinStructure.getStart());
-        assertEquals(300, proteinStructure.getEnd());
+        assertEquals(299, proteinStructure.getEnd());
 
     }
 
