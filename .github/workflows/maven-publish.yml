@@ -29,4 +29,22 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
-  
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -f dsysmap-bridge/pom.xml -s $GITHUB_WORKSPACE/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -f ensembl-bridge/pom.xml -s $GITHUB_WORKSPACE/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -f interactome3d-bridge/pom.xml -s $GITHUB_WORKSPACE/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -f uniprotkb-bridge/pom.xml -s $GITHUB_WORKSPACE/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
