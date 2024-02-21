@@ -15,8 +15,6 @@
  *******************************************************************************/
 package it.iit.genomics.cru.bridges;
 
-import it.iit.genomics.cru.bridges.UniprotkbUtils;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 

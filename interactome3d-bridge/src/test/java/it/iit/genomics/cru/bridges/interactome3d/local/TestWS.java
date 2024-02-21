@@ -62,7 +62,7 @@ public class TestWS {
 //				
         Collection<I3DProteinStructure> proteinStructures = client.getProteinStructures("P04439");
 
-        assertEquals(590, proteinStructures.size());
+        assertEquals(600, proteinStructures.size());
 
         I3DProteinStructure proteinStructure = null;
 

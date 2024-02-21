@@ -40,13 +40,13 @@ import org.apache.commons.lang.StringUtils;
  */
 public class UniprotkbUtils {
 
-    private static final String UNIPROT_SERVER = "https://www.uniprot.org/";
+    private static final String UNIPROT_SERVER = "https://rest.uniprot.org/";
 
     private static final String DBFETCH_SERVER = "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch";
 
     private static final Logger LOG = Logger.getAnonymousLogger();
 
-    private static final String UNIPROT_TOOL = "uniprot";
+    private static final String UNIPROT_TOOL = "uniprotkb";
 
     private static final String TAXONOMY_TOOL = "taxonomy";
 
@@ -146,7 +146,8 @@ public class UniprotkbUtils {
                     + URLEncoder.encode("\"" + organism + "\"", "UTF-8")
                     + "+gene:"
                     + URLEncoder.encode("\"" + gene + "\"", "UTF-8");
-System.out.println(location);
+            System.out.println(location);
+            
             URL url = new URL(location);
             // LOG.info("Submitting...");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -508,10 +509,10 @@ System.out.println(location);
         }
 
         try {
-            String location = UNIPROT_SERVER + tool + "/?"
+            String location = UNIPROT_SERVER + tool + "/search?"
                     + "query=accession%3a"
-                    + URLEncoder.encode("\"" + uniprotAc + "\"", "UTF-8")
-                    + "&format=tab&columns=id,genes";
+                    + URLEncoder.encode(uniprotAc, "UTF-8")
+                    + "&format=tsv&fields=id,gene_primary";
 
             URL url = new URL(location);
 
