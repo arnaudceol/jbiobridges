@@ -5,7 +5,7 @@
     <parent>
         <groupId>it.iit.genomics.cru.bridges</groupId>
         <artifactId>bridges-project</artifactId>
-        <version>2023_09</version>
+        <version>2024_09</version>
     </parent>
 
     <dependencies>
@@ -15,9 +15,9 @@
             <version>2.6</version>
         </dependency>
         <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
         </dependency>
         <dependency>
             <groupId>com.google.collections</groupId>

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.iit.genomics.cru.bridges</groupId>
 	<artifactId>bridges-project</artifactId>
-	<version>2023_09</version>
+	<version>2024_09</version>
 
 	<packaging>pom</packaging>
 
@@ -20,8 +20,8 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 		<cru.version>2.2-SNAPSHOT</cru.version>
 		<luceneVersion>7.1.0</luceneVersion>
  	</properties>
@@ -39,7 +39,7 @@
 		<repository>
 			<id>ebi-repo</id>
 			<name>ebi-repo</name>
-			<url>http://www.ebi.ac.uk/~maven/m2repo</url>
+			<url>https://www.ebi.ac.uk/intact/maven/nexus/</url>
 		</repository>
 	</repositories>
 
